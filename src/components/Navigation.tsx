@@ -84,7 +84,7 @@ const Navigation = () => {
               <Link to="/birthday" onClick={() => setIsOpen(false)}>
                 <Button variant="gold" size="sm" className="gap-2 w-full mt-2">
                   <Gift className="w-4 h-4" />
-                  Birthday Surprise
+                  Belated Birthday corner
                 </Button>
               </Link>
             </div>

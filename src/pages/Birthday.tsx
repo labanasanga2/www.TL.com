@@ -156,7 +156,7 @@ const Birthday = () => {
             <Gift className="w-16 h-16 text-christmas-gold mx-auto mb-6 animate-float" />
 
             <h2 className="text-3xl font-romantic text-christmas-red mb-6">
-              My Dearest Love,
+              My pookie,
             </h2>
 
             <div className="text-left space-y-4 text-foreground/80 leading-relaxed">
@@ -164,17 +164,17 @@ const Birthday = () => {
                 I'm grateful for every moment.
               </p>
               <p>
-                This year, you've been my rock, my joy, my everything. You've made me laugh
-                when I wanted to cry, held me when I needed comfort, and loved me when I
+                This year, you've been my rock, my joy, my everything.You've made me laugh
+                when I wanted to cry, held me when I needed comfort and loved me when I
                 didn't feel lovable.
               </p>
               <p>
                 So here's my belated birthday wish for you: May this new year of your life
-                be filled with all the love, happiness, and magic you deserve. And may I be
+                be filled with Laban (all the love, happiness and magic you deserve). And may I be
                 lucky enough to be by your side for all of it.
               </p>
               <p className="text-christmas-red font-romantic text-xl pt-4">
-                Happy Birthday, my love. Today, tomorrow, and always. 🎂💕
+                Happy Birthday babe. Today, tomorrow, and always. 🎂💕
               </p>
             </div>
 
