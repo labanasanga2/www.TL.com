@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Birthday from "./pages/Birthday";
 import NotFound from "./pages/NotFound";
-
+import MusicPlayer from "./components/MusicPlayer";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -21,6 +21,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+         <MusicPlayer />  {/* ADD THIS LINE */}
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
