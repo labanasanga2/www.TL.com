@@ -161,8 +161,7 @@ const Birthday = () => {
 
             <div className="text-left space-y-4 text-foreground/80 leading-relaxed">
               <p>
-                I know I missed your birthday, and I'm so sorry. But I want you to know that
-                every day with you feels like a celebration, and I'm grateful for every moment.
+                I'm grateful for every moment.
               </p>
               <p>
                 This year, you've been my rock, my joy, my everything. You've made me laugh

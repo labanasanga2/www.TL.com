@@ -61,7 +61,7 @@ const fortunes = [
   "Together we make perfect sense ✓❤️",
   "You're my North Star 🌟💕",
   "Our love keeps growing stronger 💪❤️",
-  "POISON KISS 💕∞",
+  "BABE WILL THINK ABOUT YOU ALOT TODAY💕∞",
 ];
 
 const FortuneCookie = () => {
