@@ -1,5 +1,5 @@
 import { Heart, Snowflake, ChevronDown } from 'lucide-react';
-
+import RelationshipTimer from './RelationshipTimer';
 const HeroSection = () => {
   const scrollToGallery = () => {
     const element = document.querySelector('#gallery');
@@ -30,6 +30,11 @@ const HeroSection = () => {
       </div>
 
       <div className="text-center relative z-10 max-w-3xl mx-auto">
+         {/* Relationship Timer */}
+        <div className="mb-6">
+          <RelationshipTimer />
+        </div>
+
         {/* TL Logo */}
         <div className="mb-8 animate-scale-in">
           <span className="text-8xl sm:text-9xl font-romantic text-gradient-love text-glow">

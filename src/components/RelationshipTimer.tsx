@@ -17,12 +17,12 @@ const RelationshipTimer = () => {
   });
 
   useEffect(() => {
-    const startDate = new Date('2024-08-01T00:00:00');
+    const startDate = new Date('2025-08-01T00:00:00');
 
     const calculateTime = () => {
       const now = new Date();
 
-      // Calculate time elapsed since August 1, 2024
+      // Calculate time elapsed since August 1, 2025
       const diffMs = now.getTime() - startDate.getTime();
       const totalSeconds = Math.floor(diffMs / 1000);
       const totalMinutes = Math.floor(totalSeconds / 60);
