@@ -4,10 +4,40 @@ import { Button } from './ui/button';
 
 // Placeholder images - user will replace with their own photos
 const photos = [
-  { url: "/photos/photo1.jpg", caption: "Our beautiful moments ❤️" },
-  { url: "/photos/photo2.jpg", caption: "Forever and always 💕" },
-  { url: "/photos/photo3.jpg", caption: "My favorite person ☃️" },
-  { url: "/photos/photo4.jpg", caption: "Love you always 💖" },
+
+  { url: "/photos/tkm11.jpg", caption: "1st Anniversary ❤️" },
+  { url: "/photos/tkm3.jpg", caption: "Forever and always 💕" },
+  { url: "/photos/tkm4.jpg", caption: "My favorite person ☃️" },
+    { url: "/photos/tkm6.jpg", caption: "My favorite person ☃️" },
+  { url: "/photos/tkm7.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm8.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm9.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm10.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm11.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm12.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm13.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm14.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm15.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm16.jpg", caption: "T+L💕" },
+     { url: "/photos/tkm17.jpg", caption: "Perfect together💖" },
+     { url: "/photos/tkm18.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm19.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm20.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm21.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm22.jpg", caption: "T+L💕" },
+     { url: "/photos/tkm23.jpg", caption: "Perfect together💖" },
+     { url: "/photos/tkm24.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm25.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm26.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm27.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm28.jpg", caption: "T+L💕" },
+     { url: "/photos/tkm29.jpg", caption: "Perfect together💖" },
+     { url: "/photos/tkm30.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm31.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm32.jpg", caption: "Love you always 💖" },
+     { url: "/photos/tkm33.jpg", caption: "Today Tomorrow Forever 💖" },
+     { url: "/photos/tkm34.jpg", caption: "T+L💕" },
+     { url: "/photos/tkm35.jpg", caption: "Perfect together💖" },
 ];
 
 const PhotoGallery = () => {
@@ -16,7 +46,7 @@ const PhotoGallery = () => {
 
   useEffect(() => {
     if (!isAutoPlay) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % photos.length);
     }, 5000);
@@ -38,7 +68,7 @@ const PhotoGallery = () => {
     <section id="gallery" className="py-20 px-6 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 bg-romantic-glow opacity-50" />
-      
+
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -82,18 +112,11 @@ const PhotoGallery = () => {
                     : 'opacity-0 scale-105'
                 }`}
               >
-                {/* Placeholder for user's photos */}
-                <div className="w-full h-full flex items-center justify-center bg-gradient-warm">
-                  <div className="text-center">
-                    <Heart className="w-16 h-16 text-christmas-red/30 mx-auto mb-4" />
-                    <p className="text-muted-foreground font-medium">
-                      Photo {index + 1}
-                    </p>
-                    <p className="text-sm text-muted-foreground/70 mt-2">
-                      Add your photo to /public{photo.url}
-                    </p>
-                  </div>
-                </div>
+                <img
+                  src={photo.url}
+                  alt={photo.caption}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
 

@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 
 // Placeholder URLs - user will replace with their own audio files
 const songs = [
-  { name: "Perfect - Ed Sheeran", url: "/music/perfect.mp3" },
+  { name: "Photograph - Ed Sheeran", url: "/music/photograph.mp3" },
   { name: "White Ferrari - Frank Ocean", url: "/music/white-ferrari.mp3" },
 ];
 

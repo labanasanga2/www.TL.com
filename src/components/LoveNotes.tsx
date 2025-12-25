@@ -7,7 +7,7 @@ const notes = [
   },
   {
     title: "My Promise",
-    content: "In every snowflake that falls, I see our story. In every star that shines, I see your smile. You are my everything. ✨",
+    content: "In every snowflake that falls, I see our story. In every star that shines, I see your smile.I promise to be there for you for whatever. ✨",
   },
   {
     title: "Forever Yours",

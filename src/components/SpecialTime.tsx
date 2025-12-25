@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 const SpecialTime = () => {
   const handleSendHappy1738 = () => {
     const message = encodeURIComponent("Happy 17:38 ❤️");
-    const phoneNumber = ""; // User can add phone number
+    const phoneNumber = "254798162561"; // User can add phone number
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
@@ -38,7 +38,7 @@ const SpecialTime = () => {
           <div className="mb-8 p-4 rounded-xl bg-romance-blush/30 inline-block">
             <p className="text-sm text-muted-foreground mb-1">Together since</p>
             <p className="text-2xl font-elegant text-christmas-red">
-              01/08/2024
+              01/08/2025
             </p>
             <div className="flex items-center justify-center gap-2 mt-2">
               <Heart className="w-4 h-4 text-christmas-red" fill="currentColor" />

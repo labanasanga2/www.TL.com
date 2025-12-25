@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Gift, Cake, Sparkles, PartyPopper, ArrowLeft } from 'lucide-react';
+import { Heart, Gift, Cake, Sparkles, PartyPopper, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import FortuneCookie from '@/components/FortuneCookie';
 
 interface Confetti {
   id: number;
@@ -18,10 +19,20 @@ interface Balloon {
   delay: number;
 }
 
+// Birthday photos - add your photos to /public/birthday-photos/
+const birthdayPhotos = [
+  { url: '/photos/tkm1.jpg', caption: 'Happy Birthday! 🎂' },
+  { url: '/photos/tkm2.jpg', caption: 'Celebrating You! 🎉' },
+  { url: '/photos/tkm5.jpg', caption: 'My Birthday Boy 💕' },
+    { url: '/photos/tkm5.jpg', caption: 'My Birthday Boy 💕' },
+     { url: '/photos/tkm20.jpg', caption: 'My Birthday Boy 💕' },
+];
+
 const Birthday = () => {
   const [confetti, setConfetti] = useState<Confetti[]>([]);
   const [balloons, setBalloons] = useState<Balloon[]>([]);
   const [showMessage, setShowMessage] = useState(false);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const colors = ['#dc2626', '#f59e0b', '#10b981', '#3b82f6', '#ec4899', '#8b5cf6'];
 
@@ -48,6 +59,14 @@ const Birthday = () => {
     // Show message after animation
     setTimeout(() => setShowMessage(true), 1000);
   }, []);
+
+  const nextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % birthdayPhotos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + birthdayPhotos.length) % birthdayPhotos.length);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-romance-blush via-background to-christmas-gold/10 relative overflow-hidden">
@@ -135,24 +154,24 @@ const Birthday = () => {
           {/* Birthday card */}
           <div className="max-w-2xl mx-auto glass rounded-3xl p-8 sm:p-12 mb-12">
             <Gift className="w-16 h-16 text-christmas-gold mx-auto mb-6 animate-float" />
-            
+
             <h2 className="text-3xl font-romantic text-christmas-red mb-6">
               My Dearest Love,
             </h2>
 
             <div className="text-left space-y-4 text-foreground/80 leading-relaxed">
               <p>
-                I know I missed your birthday, and I'm so sorry. But I want you to know that 
+                I know I missed your birthday, and I'm so sorry. But I want you to know that
                 every day with you feels like a celebration, and I'm grateful for every moment.
               </p>
               <p>
-                This year, you've been my rock, my joy, my everything. You've made me laugh 
-                when I wanted to cry, held me when I needed comfort, and loved me when I 
+                This year, you've been my rock, my joy, my everything. You've made me laugh
+                when I wanted to cry, held me when I needed comfort, and loved me when I
                 didn't feel lovable.
               </p>
               <p>
-                So here's my belated birthday wish for you: May this new year of your life 
-                be filled with all the love, happiness, and magic you deserve. And may I be 
+                So here's my belated birthday wish for you: May this new year of your life
+                be filled with all the love, happiness, and magic you deserve. And may I be
                 lucky enough to be by your side for all of it.
               </p>
               <p className="text-christmas-red font-romantic text-xl pt-4">
@@ -168,21 +187,76 @@ const Birthday = () => {
             </div>
           </div>
 
-          {/* Photo placeholder */}
-          <div className="max-w-lg mx-auto">
-            <div className="rounded-3xl overflow-hidden shadow-2xl bg-card p-2">
-              <div className="aspect-square rounded-2xl bg-gradient-warm flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Gift className="w-16 h-16 text-christmas-red/30 mx-auto mb-4" />
-                  <p className="text-muted-foreground font-medium">
-                    Birthday Photos
-                  </p>
-                  <p className="text-sm text-muted-foreground/70 mt-2">
-                    Add your birthday photos here
-                  </p>
+          {/* Birthday Photo Gallery */}
+          <div className="max-w-lg mx-auto mb-12">
+            <h3 className="text-2xl font-romantic text-christmas-red mb-6">
+              📸 Birthday Memories 📸
+            </h3>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-card p-2">
+              <div className="aspect-square rounded-2xl overflow-hidden relative">
+                <img
+                  src={birthdayPhotos[currentPhotoIndex].url}
+                  alt={birthdayPhotos[currentPhotoIndex].caption}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Show placeholder if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                {/* Placeholder shown if image fails */}
+                <div className="hidden absolute inset-0 bg-gradient-warm flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <Gift className="w-16 h-16 text-christmas-red/30 mx-auto mb-4" />
+                    <p className="text-muted-foreground font-medium">
+                      Birthday Photo {currentPhotoIndex + 1}
+                    </p>
+                    <p className="text-sm text-muted-foreground/70 mt-2">
+                      Add photo to /public/birthday-photos/photo{currentPhotoIndex + 1}.jpg
+                    </p>
+                  </div>
                 </div>
+
+                {/* Navigation arrows */}
+                <button
+                  onClick={prevPhoto}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 transition-all shadow-lg"
+                >
+                  <ChevronLeft className="w-6 h-6 text-christmas-red" />
+                </button>
+                <button
+                  onClick={nextPhoto}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-2 transition-all shadow-lg"
+                >
+                  <ChevronRight className="w-6 h-6 text-christmas-red" />
+                </button>
+              </div>
+
+              {/* Caption */}
+              <p className="text-center mt-4 font-romantic text-lg text-christmas-red">
+                {birthdayPhotos[currentPhotoIndex].caption}
+              </p>
+
+              {/* Dots indicator */}
+              <div className="flex justify-center gap-2 mt-3 pb-2">
+                {birthdayPhotos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPhotoIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      index === currentPhotoIndex
+                        ? 'bg-christmas-red w-6'
+                        : 'bg-christmas-red/30 hover:bg-christmas-red/50'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
+          </div>
+
+          {/* Fortune Cookie Section */}
+          <div className="max-w-2xl mx-auto glass rounded-3xl p-8 sm:p-12 mb-12">
+            <FortuneCookie />
           </div>
 
           {/* Bottom message */}

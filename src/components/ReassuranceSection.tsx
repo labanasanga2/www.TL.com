@@ -11,7 +11,7 @@ const reassuranceMessages = [
       "in every moment, my heart chooses you.\n\n" +
       "Not because I have to, but because I want to. " +
       "You are my favorite choice, my best decision, my forever person.\n\n" +
-      "I love you always. 💖"
+      "I love you always.TODAY, TOMORROW, FOREVER! 💖"
     ),
   },
   {
@@ -23,7 +23,7 @@ const reassuranceMessages = [
       "secrets, your fears, your dreams - they're all safe in my hands.\n\n" +
       "I will protect our love with everything I have. " +
       "You can trust me completely. Always.\n\n" +
-      "With all my love 💝"
+      "With all my love 💝TODAY, TOMORROW, FOREVER! 💖"
     ),
   },
   {
@@ -54,7 +54,7 @@ const reassuranceMessages = [
 
 const ReassuranceSection = () => {
   const handleReassurance = (message: string) => {
-    const phoneNumber = ""; // User can add phone number
+    const phoneNumber = "254798162561"; // User can add phone number
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 

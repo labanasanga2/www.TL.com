@@ -50,7 +50,7 @@ const HeroSection = () => {
 
         {/* Message */}
         <p className="text-lg text-foreground/70 max-w-xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-          This website is my gift to you — a little corner of the internet 
+          This is a website to you — a little corner of the internet
           that's just for us, filled with love, memories, and a whole lot of Christmas magic. 🎄💕
         </p>
 

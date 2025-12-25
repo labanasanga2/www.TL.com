@@ -5,10 +5,10 @@ const apologyMessages = {
   terence: encodeURIComponent(
     "My dearest Laban 💕\n\n" +
     "I'm reaching out because I want you to know how deeply sorry I am. " +
-    "Sometimes I mess up, and I know that can hurt you. But please know that " +
+    "Sometimes I mess up and I know that can hurt you. But please know that " +
     "my love for you is real and unwavering.\n\n" +
-    "You mean everything to me, and the last thing I ever want to do is " +
-    "cause you pain. I'm learning and growing, and I promise to always " +
+    "You mean everything to me and the last thing I ever want to do is " +
+    "cause you pain.I'm learning and growing and I promise to always " +
     "try to be better for you, for us.\n\n" +
     "Please forgive me? I love you more than words could ever express. " +
     "You're my heart, my home, my everything.\n\n" +
@@ -17,7 +17,7 @@ const apologyMessages = {
   laban: encodeURIComponent(
     "My love, Terence 💕\n\n" +
     "I'm sorry. From the bottom of my heart, I'm truly sorry. " +
-    "You deserve all the love and patience in the world, and sometimes " +
+    "You deserve all the love and patience in the world and sometimes " +
     "I fall short of giving you that.\n\n" +
     "I never want to be the reason for your tears or your hurt. " +
     "You are my Christmas miracle, my safe place, my everything. " +
@@ -30,7 +30,7 @@ const apologyMessages = {
 
 const ApologyCorner = () => {
   const handleApology = (person: 'terence' | 'laban') => {
-    const phoneNumber = ""; // User can add phone number
+    const phoneNumber = "254798162561"; // User can add phone number
     const message = apologyMessages[person];
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
