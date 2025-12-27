@@ -44,8 +44,8 @@ const HeroSection = () => {
 
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-6xl font-elegant text-foreground mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          Merry Christmas,{' '}
-          <span className="text-christmas-red">My Love</span>
+          Happy New Year,{' '}
+          <span className="text-christmas-red">Terence</span>
         </h1>
 
         {/* Subheading */}

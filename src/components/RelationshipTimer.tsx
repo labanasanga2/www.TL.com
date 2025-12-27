@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Calendar } from 'lucide-react';
 
 const RelationshipTimer = () => {
   const [timeElapsed, setTimeElapsed] = useState({
@@ -15,6 +16,22 @@ const RelationshipTimer = () => {
     minutes: 0,
     seconds: 0,
   });
+
+  const [nextMeetup, setNextMeetup] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  const [meetupDate, setMeetupDate] = useState<string | null>(null);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  // Load meetup date from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('nextMeetupDate');
+    if (saved) setMeetupDate(saved);
+  }, []);
 
   useEffect(() => {
     const startDate = new Date('2025-08-01T00:00:00');
@@ -71,13 +88,42 @@ const RelationshipTimer = () => {
         minutes: Math.max(0, nextTotalMinutes % 60),
         seconds: Math.max(0, nextTotalSeconds % 60),
       });
+
+      // Calculate next meetup countdown
+      if (meetupDate) {
+        const meetupDateTime = new Date(meetupDate).getTime();
+        const meetupDiffMs = meetupDateTime - now.getTime();
+
+        if (meetupDiffMs > 0) {
+          const meetupTotalSeconds = Math.floor(meetupDiffMs / 1000);
+          const meetupTotalMinutes = Math.floor(meetupTotalSeconds / 60);
+          const meetupTotalHours = Math.floor(meetupTotalMinutes / 60);
+          const meetupTotalDays = Math.floor(meetupTotalHours / 24);
+
+          setNextMeetup({
+            days: meetupTotalDays,
+            hours: meetupTotalHours % 24,
+            minutes: meetupTotalMinutes % 60,
+            seconds: meetupTotalSeconds % 60,
+          });
+        } else {
+          setNextMeetup({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        }
+      }
     };
 
     calculateTime();
     const interval = setInterval(calculateTime, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [meetupDate]);
+
+  const handleSetMeetupDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const date = e.target.value;
+    setMeetupDate(date);
+    localStorage.setItem('nextMeetupDate', date);
+    setShowDatePicker(false);
+  };
 
   const TimeBlock = ({ value, label, size = 'large' }: { value: number; label: string; size?: 'large' | 'small' }) => (
     <div className={`flex flex-col items-center ${size === 'large' ? 'mx-2 sm:mx-3' : 'mx-1'}`}>
@@ -155,6 +201,47 @@ const RelationshipTimer = () => {
           <TimeBlock value={nextAnniversary.minutes} label="Min" size="small" />
           <TimeBlock value={nextAnniversary.seconds} label="Sec" size="small" />
         </div>
+      </div>
+
+      {/* Divider */}
+      <div className="w-32 h-px bg-gradient-to-r from-transparent via-christmas-gold/50 to-transparent" />
+
+      {/* Next Meetup Countdown */}
+      <div className="text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <p className="text-[10px] sm:text-xs text-foreground/60 uppercase tracking-[0.15em]">
+            💑 Next Meetup In 💑
+          </p>
+          <button
+            onClick={() => setShowDatePicker(!showDatePicker)}
+            className="p-1 rounded-full bg-christmas-red/20 hover:bg-christmas-red/40 transition-colors"
+            title="Set meetup date"
+          >
+            <Calendar className="w-3 h-3 text-christmas-gold" />
+          </button>
+        </div>
+
+        {showDatePicker && (
+          <div className="mb-2 animate-fade-in">
+            <input
+              type="datetime-local"
+              onChange={handleSetMeetupDate}
+              value={meetupDate || ''}
+              className="px-3 py-1 rounded-lg bg-background/50 border border-christmas-red/30 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-christmas-red/50"
+            />
+          </div>
+        )}
+
+        {meetupDate ? (
+          <div className="flex items-end justify-center">
+            <TimeBlock value={nextMeetup.days} label="Days" size="small" />
+            <TimeBlock value={nextMeetup.hours} label="Hrs" size="small" />
+            <TimeBlock value={nextMeetup.minutes} label="Min" size="small" />
+            <TimeBlock value={nextMeetup.seconds} label="Sec" size="small" />
+          </div>
+        ) : (
+          <p className="text-xs text-foreground/40 italic">Click calendar to set date</p>
+        )}
       </div>
     </div>
   );

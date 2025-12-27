@@ -20,6 +20,7 @@ const LandingGame = ({ onComplete }: LandingGameProps) => {
     "Terence... really? Click YES! ☃️",
     "The NO button is scared of you! 😂❤️",
     "I knew you'd say YES eventually 🥰",
+      "FUCK YOU WHORE!!🙄",
   ];
 
   const handleNoHover = () => {
