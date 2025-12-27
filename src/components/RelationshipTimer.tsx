@@ -210,7 +210,7 @@ const RelationshipTimer = () => {
       <div className="text-center">
         <div className="flex items-center justify-center gap-2 mb-2">
           <p className="text-[10px] sm:text-xs text-foreground/60 uppercase tracking-[0.15em]">
-            💑 Next Meetup In 💑
+             Next Meetup In
           </p>
           <button
             onClick={() => setShowDatePicker(!showDatePicker)}
